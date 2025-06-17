@@ -8,7 +8,9 @@
 
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <style type="text/tailwindcss">
         @theme {
@@ -27,7 +29,19 @@
       }
 
       .card {
-        @apply flex flex-col overflow-hidden rounded-md shadow-[0_0px_15px_2px_rgba(0,0,0,0.07)] relative mb-4 bg-white p-2 pb-2
+        @apply flex flex-col overflow-hidden rounded-md shadow-[0_0px_15px_2px_rgba(0,0,0,0.07)] relative mb-4 bg-white
+      }
+
+      .tab-list {
+        @apply py-3 px-5 hover:bg-neutral-100 block rounded-md text-[16px] font-medium
+      }
+
+      .tab-list i {
+        @apply pe-3 text-darkblue
+      }
+
+      .tab-list.active {
+        @apply !bg-lightblue
       }
     </style>
 </head>
@@ -79,24 +93,85 @@
 
     <section class="block relative text-white text-center py-50 px-10 bg-cover bg-bottom bg-[url(hero.jpg)] hero-after">
         <h1 class="text-6xl font-bold text-white relative z-10 mb-3">Alpine JS Practice Page</h1>
-        <p class="relative text-xl text-white font-medium z-10 mb-5">This Page is Build in my practice of Alpine JS with Tailwind JS</p>
-        <a href="javascript:void(0)" class="relative p-2 px-3 bg-blue hover:bg-darkblue rounded-md transition duration-300 z-10">Learn More</a>
+        <p class="relative text-xl text-white font-medium z-10 mb-5">This Page is Build in my practice of Alpine JS with
+            Tailwind JS</p>
+        <a href="javascript:void(0)"
+            class="relative p-2 px-3 bg-blue hover:bg-darkblue rounded-md transition duration-300 z-10">Learn More</a>
     </section>
 
-    <section class="grid grid-cols-3 gap-3 max-w-7xl mx-auto mt-6">
-        <aside class="col-span-1 bg-lightblue rounded-md p-3">
-
+    <section class="grid grid-cols-3 gap-15 max-w-6xl mx-auto my-6">
+        <aside class="col-span-1">
+            <section class="card p-3">
+                <h2 class="text-lg font-semibold mb-2">Categories</h2>
+                <ul class="flex flex-col gap-2 mx-2">
+                    <li>
+                        <a href="" class="tab-list active"><i class="fa-solid fa-leaf"></i> Nature</a>
+                    </li>
+                    <li>
+                        <a href="" class="tab-list"><i class="fa-solid fa-film"></i> Movies</a>
+                    </li>
+                    <li>
+                        <a href="" class="tab-list"><i class="fa-solid fa-mask"></i> Characters</a>
+                    </li>
+                    <li>
+                        <a href="" class="tab-list"><i class="fa-solid fa-torii-gate"></i> Destinations</a>
+                    </li>
+                </ul>
+            </section>
         </aside>
 
-        <main class="col-span-2 p-3">
+        <main class="col-span-2">
             <article class="card">
-                <div class="title">
-                    <h3>Little Boy</h3>
-                    
+                <div class="title flex justify-between mx-3 px-2 items-center h-12">
+                    <h3 class="text-lg font-bold text-darkblue w-[50%] truncate">Attirapally Waterfalls</h3>
+                    <div>Posted @ <a href="javascript:void(0)" target="_blank"
+                            class="text-blue hover:text-darkblue hover:underline">Nick</a></div>
                 </div>
+
+                <div class="image">
+                    <a href="javascript:void(0)">
+                        <img class="w-full h-80 object-cover" src="./nature.jpg" alt="">
+                    </a>
+                </div>
+
+                <div class="p-4 pb-2">
+                    <a href="" class="flex items-center gap-3 mb-2">
+                        <i class="fa-solid fa-leaf text-blue"></i>
+                        <span class="font-bold text-dark hover:underline">Nature</span>
+                    </a>
+                    <p class="text-3xl font-medium mb-5">Attirapally Waterfall is South India's Largest WaterFall</p>
+                    <div class="flex items-center gap-3 text-sm mb-5">
+                        <a href="javascript:void(0)"
+                            class="bg-lightblue rounded-full text-darkblue font-medium px-3 py-1 hover:bg-lightblue transition duration-300">Kerala</a>
+                        <a href="javascript:void(0)"
+                            class="bg-lightblue rounded-full text-darkblue font-medium px-3 py-1 hover:bg-lightblue transition duration-300">WaterFall</a>
+                        <a href="javascript:void(0)"
+                            class="bg-lightblue rounded-full text-darkblue font-medium px-3 py-1 hover:bg-lightblue transition duration-300">Treking</a>
+                    </div>
+                    <div class="flex items-center justify-between text-sm">
+                        <a href="" class="font-bold">Comments : <span>2</span></a>
+                        <div class="flex align-center gap-6">
+                            <div class="flex gap-2 align-center">
+                                <i
+                                    class="fa-solid fa-heart text-red-500 rounded-full p-2 bg-neutral-100 cursor-pointer hover:bg-red-100 transition duration-300"></i>
+                                <span class="mt-1 font-semibold">1</span>
+                            </div>
+                            <div class="flex align-center gap-2">
+                                <a href="javascript:void(0)"
+                                    class="text-md font-normal py-1 px-3 rounded-full bg-neutral-100 hover:bg-neutral-200 transition duration-200">Like</a>
+                                <a href="javascript:void(0)"
+                                    class="text-md font-normal py-1 px-3 rounded-full bg-neutral-100 hover:bg-neutral-200 transition duration-200">Edit</a>
+                                <a href="javascript:void(0)"
+                                    class="text-md font-normal py-1 px-3 rounded-full bg-neutral-100 hover:bg-neutral-200 transition duration-200">Delete</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </article>
         </main>
     </section>
 
 </body>
+
 </html>
