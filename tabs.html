@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Alpine.js Tabs</title>
+  <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+  <style>
+    .active-tab {
+      border-bottom: 2px solid #3b82f6;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body class="p-6">
+
+  <div x-data="{ activeTab: 'tab1' }" class="max-w-md mx-auto">
+    <!-- Tab Headers -->
+    <div class="flex space-x-4 border-b mb-4">
+      <button 
+        :class="{ 'active-tab': activeTab === 'tab1' }" 
+        @click="activeTab = 'tab1'"
+        class="px-4 py-2">
+        Tab 1
+      </button>
+      <button 
+        :class="{ 'active-tab': activeTab === 'tab2' }" 
+        @click="activeTab = 'tab2'"
+        class="px-4 py-2">
+        Tab 2
+      </button>
+      <button 
+        :class="{ 'active-tab': activeTab === 'tab3' }" 
+        @click="activeTab = 'tab3'"
+        class="px-4 py-2">
+        Tab 3
+      </button>
+    </div>
+
+    <!-- Tab Contents -->
+    <div>
+      <div x-show="activeTab === 'tab1'" x-transition>
+        <p>This is the content of Tab 1.</p>
+      </div>
+      <div x-show="activeTab === 'tab2'" x-transition>
+        <p>This is the content of Tab 2.</p>
+      </div>
+      <div x-show="activeTab === 'tab3'" x-transition>
+        <p>This is the content of Tab 3.</p>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

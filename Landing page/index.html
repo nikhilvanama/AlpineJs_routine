@@ -31,7 +31,7 @@
       }
 
       .hero-after {
-        @apply after:content-[''] after:absolute after:w-full after:h-full after:top-0 after:left-0 after:bg-dark after:opacity-[0.4] after:z-[4]
+        @apply after:content-[''] after:absolute after:w-full after:h-full after:top-0 after:left-0 after:bg-dark after:opacity-[0.6] after:z-[4]
       }
 
       .card {
@@ -54,12 +54,13 @@
 
 <body>
 
-    <header x-data="{ mobilenavOpen: false }" class="md:flex items-center justify-between bg-lightblue h-15 p-2 px-[20px] sticky top-0 z-50">
+    <header x-data="{ mobilenavOpen: false }"
+        class="md:flex items-center justify-between bg-lightblue h-15 p-2 px-[20px] sticky top-0 z-50">
         <div class="flex items-center justify-between gap-10">
             <div class="logo">
                 <a href="https://alpinejs.dev/" target="_blank">
-                    <svg width="200px" height="40px" viewBox="0 0 702 134" version="1.1" xmlns="http://www.w3.org/2000/svg"
-                        xmlns:xlink="http://www.w3.org/1999/xlink">
+                    <svg width="200px" height="40px" viewBox="0 0 702 134" version="1.1"
+                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                         <title>Custom Preset 4 Copy 5</title>
                         <g id="Custom-Preset-4-Copy-5" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                             <path
@@ -77,7 +78,7 @@
                     </svg>
                 </a>
             </div>
-    
+
             <div class="mobileicon md:hidden">
                 <ul class="navitems">
                     <li>
@@ -90,8 +91,15 @@
             </div>
         </div>
 
-        <nav x-show="mobilenavOpen" x-cloak class="md:!block bg-lightblue md:bg-transparent">
-            <ul class="md:flex md:gap-x-[24px] items-center navitems">
+        <nav x-show="mobilenavOpen" x-cloak
+            class="absolute top-[60px] left-0 transform md:relative md:top-0 md:!block h-screen w-screen md:h-auto md:w-auto p-4 py-10 bg-lightblue md:bg-transparent"
+            x-transition:enter="transition ease-out duration-300"
+            x-transition:enter-start="opacity-0 -translate-y-5 scale-95"
+            x-transition:enter-end="opacity-100 translate-y-0 scale-100"
+            x-transition:leave="transition ease-in duration-200"
+            x-transition:leave-start="opacity-100 translate-y-0 scale-100"
+            x-transition:leave-end="opacity-0 -translate-y-5 scale-95">
+            <ul class="flex gap-[24px] md:gap-x-[24px] items-center flex-col md:flex-row justify-center navitems">
                 <li>
                     <a href="javascript:void(0)">Home</a>
                 </li>
@@ -103,14 +111,24 @@
                         <img width="48" height="48" class="h-8 w-8 rounded-full bg-darkblue"
                             src="https://img.icons8.com/doodle/48/bart-simpson.png" alt="bart-simpson" />
                         Bart
-                        <span :class="{ 'rotate-180' : dropdownOpen, 'rotate-0' : !dropdownOpen }" class="transition duration-200">
-                            <i class="fa-solid fa-chevron-down text-[12px]" ></i>
+                        <span :class="{ 'rotate-180' : dropdownOpen, 'rotate-0' : !dropdownOpen }"
+                            class="transition duration-200">
+                            <i class="fa-solid fa-chevron-down text-[12px]"></i>
                         </span>
                     </a>
-                    <div class="absolute right-0 bg-white text-black shadow rounded-lg w-40 p-0 z-20 overflow-hidden" x-show="dropdownOpen" x-cloak x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 -translate-y-5 scale-95" x-transition:enter-end="opacity-100 translate-y-0 scale-100" x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100 translate-y-0 scale-100" x-transition:leave-end="opacity-0 -translate-y-5 scale-95">
+                    <div class="absolute right-0 bg-white text-black shadow rounded-lg w-40 p-0 z-20 overflow-hidden"
+                        x-show="dropdownOpen" x-cloak x-transition:enter="transition ease-out duration-300"
+                        x-transition:enter-start="opacity-0 -translate-y-5 scale-95"
+                        x-transition:enter-end="opacity-100 translate-y-0 scale-100"
+                        x-transition:leave="transition ease-in duration-200"
+                        x-transition:leave-start="opacity-100 translate-y-0 scale-100"
+                        x-transition:leave-end="opacity-0 -translate-y-5 scale-95">
                         <ul>
-                            <li class="dropdown-item p-2 px-4 hover:bg-lightblue"><a href="javascript:void(0)"><i class="fa-solid fa-user text-darkblue text-[14px] me-2"></i> My Profile</a></li>
-                            <li class="dropdown-item p-2 px-4 hover:bg-lightblue"><a href="javascript:void(0)"><i class="fa-solid fa-right-from-bracket text-darkblue text-[14px] me-2"></i> LogOut</a></li>
+                            <li class="dropdown-item p-2 px-4 hover:bg-lightblue"><a href="javascript:void(0)"><i
+                                        class="fa-solid fa-user text-darkblue text-[14px] me-2"></i> My Profile</a></li>
+                            <li class="dropdown-item p-2 px-4 hover:bg-lightblue"><a href="javascript:void(0)"><i
+                                        class="fa-solid fa-right-from-bracket text-darkblue text-[14px] me-2"></i>
+                                    LogOut</a></li>
                         </ul>
                     </div>
                 </li>
@@ -119,20 +137,31 @@
     </header>
 
     <!-- Banner -->
-    <section class="block relative text-white text-center py-20 md:py-30 lg:py-50 px-10 bg-cover bg-bottom bg-[url(hero.jpg)] hero-after">
-        <h1 class="text-6xl font-bold text-white relative z-10 mb-3">Alpine JS Practice Page</h1>
+    <section
+        class="block relative text-white text-center py-20 md:py-30 lg:py-40 px-10 bg-cover bg-center bg-[url(blogs.webp)] hero-after">
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white relative z-10 mb-3">Alpine JS Practice Page</h1>
         <p class="relative text-xl text-white font-medium z-10 mb-5">This Page is Build in my practice of Alpine JS with
             Tailwind JS</p>
         <a href="javascript:void(0)"
             class="relative p-2 px-3 bg-blue hover:bg-darkblue rounded-md transition duration-300 z-10">Learn More</a>
     </section>
 
-    <section class="grid grid-cols-3 md:gap-10 md:gap-15 max-w-6xl mx-auto my-3 md:my-4 p-3 md:p-0">
+    <section x-data="{ categoryOpen:false }" class="grid grid-cols-3 gap-10 md:gap-10 md:gap-15 max-w-6xl mx-auto my-3 md:my-4 p-3 md:p-0">
+        <!-- Mobile Category Button -->
+        <div class="md:hidden col-span-3 flex justify-center">
+            <a href="javascript:void(0)" class="flex items-center justify-center gap-4 bg-lightblue p-2 px-4 rounded-md w-max" @click="categoryOpen = !categoryOpen">
+                Categories
+                <span :class="{ 'rotate-180' : categoryOpen , 'rotate-0' : !categoryOpen }" class="transition duration-200">
+                    <i class="fa-solid fa-chevron-down text-[12px]"></i>
+                </span>
+            </a>
+        </div>
+
         <!-- Sidebar -->
-        <aside class="col-span-3 lg:col-span-1">
-            <section class="card p-3">
-                <h2 class="text-lg font-semibold mb-2">Categories</h2>
-                <ul class="flex flex-col gap-2 mx-2">
+        <aside x-show="categoryOpen" class="md:!block col-span-3 lg:col-span-1">
+            <section class="card">
+                <h2 class="text-lg font-semibold mb-2 p-3 pb-2 border-b-[1px] border-darkblue">Categories</h2>
+                <ul class="flex flex-col gap-2 mx-2 p-2 pt-2">
                     <li>
                         <a href="javascript:void(0)" class="tab-list active"><i class="fa-solid fa-leaf"></i> Nature</a>
                     </li>
@@ -143,7 +172,8 @@
                         <a href="javascript:void(0)" class="tab-list"><i class="fa-solid fa-mask"></i> Characters</a>
                     </li>
                     <li>
-                        <a href="javascript:void(0)" class="tab-list"><i class="fa-solid fa-torii-gate"></i> Destinations</a>
+                        <a href="javascript:void(0)" class="tab-list"><i class="fa-solid fa-torii-gate"></i>
+                            Destinations</a>
                     </li>
                 </ul>
             </section>
@@ -199,6 +229,7 @@
                 </div>
 
             </article>
+
         </main>
     </section>
 
