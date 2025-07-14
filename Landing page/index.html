@@ -14,6 +14,8 @@
 
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
+    <link rel="stylesheet" href="style.css">
+
     <style type="text/tailwindcss">
         [x-cloak] {
             display: none !important;
@@ -91,6 +93,7 @@
             </div>
         </div>
 
+        <!-- Mobile responsive Header -->
         <nav x-show="mobilenavOpen" x-cloak
             class="absolute top-[60px] left-0 transform md:relative md:top-0 md:!block h-screen w-screen md:h-auto md:w-auto p-4 py-10 bg-lightblue md:bg-transparent"
             x-transition:enter="transition ease-out duration-300"
@@ -146,7 +149,7 @@
             class="relative p-2 px-3 bg-blue hover:bg-darkblue rounded-md transition duration-300 z-10">Learn More</a>
     </section>
 
-    <section x-data="{ categoryOpen:false }" class="grid grid-cols-3 gap-10 md:gap-10 md:gap-15 max-w-6xl mx-auto my-3 md:my-4 p-3 md:p-0">
+    <section x-data="{ categoryOpen:false }" class="grid grid-cols-3 gap-5 md:gap-0 lg:gap-5 max-w-6xl mx-auto my-3 md:my-4 p-3 md:p-0">
         <!-- Mobile Category Button -->
         <div class="md:hidden col-span-3 flex justify-center">
             <a href="javascript:void(0)" class="flex items-center justify-center gap-4 bg-lightblue p-2 px-4 rounded-md w-max" @click="categoryOpen = !categoryOpen">
@@ -158,8 +161,8 @@
         </div>
 
         <!-- Sidebar -->
-        <aside x-show="categoryOpen" class="md:!block col-span-3 lg:col-span-1">
-            <section class="card">
+        <aside x-show="categoryOpen" class="md:!block col-span-3 lg:col-span-1 p-4 lg:p-0">
+            <section class="card !m-0">
                 <h2 class="text-lg font-semibold mb-2 p-3 pb-2 border-b-[1px] border-darkblue">Categories</h2>
                 <ul class="flex flex-col gap-2 mx-2 p-2 pt-2">
                     <li>
@@ -180,7 +183,7 @@
         </aside>
 
         <!-- Blogs Cards -->
-        <main class="col-span-3 md:col-span-2">
+        <main class="col-span-3 md:col-span-3 lg:col-span-2 md:p-4 lg:p-0">
             <article class="card">
                 <div class="title flex justify-between mx-3 px-2 items-center h-12">
                     <h3 class="text-lg font-bold text-darkblue w-[50%] truncate">Attirapally Waterfalls</h3>

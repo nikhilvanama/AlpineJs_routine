@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+[x-cloak] {
+    display: none !important;
+}
+
+@theme {
+    --color-lightblue: #edf2f7;
+    --color-blue: #77C1D2;
+    --color-darkblue: #3999b1;
+    --color-dark: #2D3441;
+}
+
+.navitems>li>a {
+    @apply text-dark hover:bg-[#77C1D240] rounded-md h-12 p-2 px-3 text-[16px] font-medium transition duration-300
+}
+
+.hero-after {
+    @apply after:content-[''] after:absolute after:w-full after:h-full after:top-0 after:left-0 after:bg-dark after:opacity-[0.6] after:z-[4]
+}
+
+.card {
+    @apply flex flex-col overflow-hidden rounded-md shadow-[0_0px_15px_2px_rgba(0, 0, 0, 0.07)] relative mb-4 bg-white
+}
+
+.tab-list {
+    @apply py-3 px-5 hover:bg-neutral-100 block rounded-md text-[16px] font-medium
+}
+
+.tab-list i {
+    @apply pe-3 text-darkblue
+}
+
+.tab-list.active {
+    @apply !bg-lightblue
+}
