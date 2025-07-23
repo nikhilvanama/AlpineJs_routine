@@ -1,3 +1,4 @@
+/* Injects base styles and plugin base styles */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
