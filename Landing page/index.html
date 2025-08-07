@@ -142,19 +142,24 @@
     <!-- Banner -->
     <section
         class="block relative text-white text-center py-20 md:py-30 lg:py-40 px-10 bg-cover bg-center bg-[url(img/blogs.webp)] hero-after">
-        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white relative z-10 mb-3">Alpine JS Practice Page</h1>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white relative z-10 mb-3">Alpine JS Practice Page
+        </h1>
         <p class="relative text-xl text-white font-medium z-10 mb-5">This Page is Build in my practice of Alpine JS with
             Tailwind JS</p>
         <a href="javascript:void(0)"
             class="relative p-2 px-3 bg-blue hover:bg-darkblue rounded-md transition duration-300 z-10">Learn More</a>
     </section>
 
-    <section x-data="{ categoryOpen:false }" class="grid grid-cols-3 gap-5 md:gap-0 lg:gap-5 max-w-6xl mx-auto my-3 md:my-4 p-3 md:p-0">
+    <section x-data="{ categoryOpen:false }"
+        class="grid grid-cols-3 gap-5 md:gap-0 lg:gap-5 max-w-6xl mx-auto my-3 md:my-4 p-3 md:p-0">
         <!-- Mobile Category Button -->
         <div class="md:hidden col-span-3 flex justify-center">
-            <a href="javascript:void(0)" class="flex items-center justify-center gap-4 bg-lightblue p-2 px-4 rounded-md w-max" @click="categoryOpen = !categoryOpen">
+            <a href="javascript:void(0)"
+                class="flex items-center justify-center gap-4 bg-lightblue p-2 px-4 rounded-md w-max"
+                @click="categoryOpen = !categoryOpen">
                 Categories
-                <span :class="{ 'rotate-180' : categoryOpen , 'rotate-0' : !categoryOpen }" class="transition duration-200">
+                <span :class="{ 'rotate-180' : categoryOpen , 'rotate-0' : !categoryOpen }"
+                    class="transition duration-200">
                     <i class="fa-solid fa-chevron-down text-[12px]"></i>
                 </span>
             </a>
@@ -212,13 +217,11 @@
                             class="bg-lightblue rounded-full text-darkblue font-medium px-3 py-1 hover:bg-lightblue transition duration-300">Treking</a>
                     </div>
                     <div class="flex items-center justify-between text-sm">
-                        <a href="" class="font-bold">Comments : <span>2</span></a>
+                        <p class="flex items-center gap-3">
+                            <a href="" class="font-bold">No of Likes : <span>2</span></a>
+                            <i class="fa-solid fa-heart text-red-500 rounded-full p-2 bg-neutral-100 cursor-pointer hover:bg-red-100 transition duration-300"></i>
+                        </p>
                         <div class="flex align-center gap-6">
-                            <div class="flex gap-2 align-center">
-                                <i
-                                    class="fa-solid fa-heart text-red-500 rounded-full p-2 bg-neutral-100 cursor-pointer hover:bg-red-100 transition duration-300"></i>
-                                <span class="mt-1 font-semibold">1</span>
-                            </div>
                             <div class="flex align-center gap-2">
                                 <a href="javascript:void(0)"
                                     class="text-md font-normal py-1 px-3 rounded-full bg-neutral-100 hover:bg-neutral-200 transition duration-200">Like</a>
@@ -232,7 +235,6 @@
                 </div>
 
             </article>
-            
         </main>
     </section>
 
